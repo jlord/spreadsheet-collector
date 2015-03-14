@@ -3,8 +3,11 @@
   "version": "0.0.0",
   "description": "Server to cache and serve Google Spreadsheet data",
   "main": "index.js",
+  "bin": {
+    "scollector": "./bin"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -14,5 +17,9 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/jlord/spreadsheet-collector/issues"
+  },
+  "dependencies": {
+    "tabletop": "~1.3.5",
+    "minimist": "~1.1.0"
   }
 }
