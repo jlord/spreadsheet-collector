@@ -1,25 +1,15 @@
-// var Tabletop = require('tabletop')
-// var fs = require('fs')
+var http = require('http')
 
-console.log("HELLO APP")
+var server = http.createServer(route)
 
-// module.exports = function fetch(keys, time) {
-//   var time = time || 12 * 60 * 60 * 1000
-//
-//   // setTimeout(fetchSheets, time)
-//
-//   fetchSheets(keys)
-//
-//   // use tabletop to retrieve lovely json from each google spreadsheet
-//   function fetchSheets(keys) {
-//     keys.forEach(function(key) {
-//       var opts = {key: key, callback: writeSheets, simpleSheet: true}
-//       Tabletop.init(opts)
-//     })
-//   }
-//
-//   // write each sheet to file
-//   function writeSheets(data, tabletop) {
-//     console.log("TT", tabletop.key)
-//   }
-// }
+server.listen(process.env.PORT || 5000, function listening() {
+  console.log("Server serving...")
+})
+
+function route(req, res) {
+  if (req.url === ('/')) {
+    res.statusCode = 200
+    res.end("HELLO")
+    return res
+  }
+}
